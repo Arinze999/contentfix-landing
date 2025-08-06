@@ -57,25 +57,28 @@ export const metadata: Metadata = {
   },
 };
 
-interface RootLayoutProps {
+export default function RootLayout({
+  children,
+  modal,
+}: {
   children: React.ReactNode;
   modal: React.ReactNode;
-}
-
-export default function RootLayout({ children, modal }: RootLayoutProps) {
+}) {
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${inter.variable} antialiased`}>
         {/* <ReduxProvider> */}
-          <aside className="fixed top-0 left-0 right-0 text-[12px] md:text-[14px] z-10 flex items-center justify-center gap-3 bg-black p-4 text-mainWhite h-[3rem]">
-            <p>Try ContentFix free today—paste your content and hit “Generate”!</p>
-            <span className="underline cursor-pointer">Get Started</span>
-          </aside>
-          {/* <Header /> */}
-          {modal}
-          {children}
-          {/* <Footer /> */}
-          <div id="modal-root" />
+        <aside className="fixed top-0 left-0 right-0 text-[12px] md:text-[14px] z-10 flex items-center justify-center gap-3 bg-black p-4 text-mainWhite h-[3rem]">
+          <p>
+            Try ContentFix free today—paste your content and hit “Generate”!
+          </p>
+          <span className="underline cursor-pointer">Get Started</span>
+        </aside>
+        {/* <Header /> */}
+        {modal}
+        {children}
+        {/* <Footer /> */}
+        <div id="modal-root" />
         {/* </ReduxProvider> */}
       </body>
     </html>
