@@ -34,7 +34,7 @@ const Hero = () => {
         <span className="gradient1 relative">
           {' '}
           Effortlessly{' '}
-          <span className="absolute">
+          <span className="absolute right-6">
             <Thunderbolt />
           </span>
         </span>
