@@ -12,7 +12,7 @@ const Button = ({
   left?: boolean;
 }) => {
   return (
-    <button className={`${className} rounded-2xl flex gap-4 justify-center items-center text-sm md:text-md text-nowrap`}>
+    <button className={`${className} rounded-2xl flex gap-3 justify-center items-center text-sm md:text-md text-nowrap`}>
       {left && icon && icon}
       {text}
       {!left && icon && icon}

@@ -47,14 +47,14 @@ const Hero = () => {
       <div className="flex gap-6 mt-10">
         <Button
           text="Get Started Free"
-          className="py-3 px-6 gradientBgBtn
+          className="py-3 md:px-6 px-4 gradientBgBtn
              shadow-[0_0_10px_4px_rgba(139,92,246,0.1),0_0_20px_8px_rgba(139,92,246,0.2)]"
           icon={<GraphArrowIncrease />}
         />
 
         <Button
           text="Watch Demo"
-          className="border-white/20 bg-white/10 border-[2px]  py-3 px-6 shadow-lg"
+          className="border-white/20 bg-white/10 border-[2px]  py-3 md:px-6 px-4 shadow-lg"
           icon={<Play />}
           left
         />
