@@ -37,8 +37,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, close }) => {
 
   return (
     <div
-      className={`fixed bg-dark top-0 left-0 h-fit w-full pb-[1rem] shadow z-[-10] transition-transform duration-200 flex flex-col gap-[2rem] md:hidden ${
-        isOpen ? 'translate-y-[14%]' : '-translate-y-full'
+      className={`fixed bg-dark/90 top-7 left-0 h-fit w-full pb-[1rem] shadow z-[-10] transition-transform duration-200 flex flex-col gap-[2rem] md:hidden ${
+        isOpen ? 'translate-y-[14%]' : '-translate-y-[200%]'
       }`}
     >
       <ul className="flex flex-col w-full text-xl mt-[2rem] gap-[1rem]">

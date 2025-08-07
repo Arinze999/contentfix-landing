@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import Nav from '@/components/navbar/Nav';
 import MobileNav from '@/components/navbar/MobileNav';
 import CompanyLogo from '@/components/CompanyLogo';
+import { MenuSquare } from '../icons/MenuSpuare';
+import { CloseXs } from '../icons/Close';
 
 const Header = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -25,7 +27,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="bg-dark text-white fixed w-full top-0 z-10 py-2 md:py-0">
+    <header className="bg-dark/90 text-white fixed w-full top-0 z-10 py-2 md:py-0">
       <div className="default-margin md:min-h-[5rem] flex justify-between items-center relative">
         <CompanyLogo
           close={() => {
@@ -36,9 +38,13 @@ const Header = () => {
         <div className="md:hidden flex flex-col text-white">
           <div className="gap-2 flex justify-end py-2">
             {!navOpen ? (
-              <div onClick={toggleNav}>open</div>
+              <div onClick={toggleNav}>
+                <MenuSquare />
+              </div>
             ) : (
-              <div onClick={toggleNav}>close</div>
+              <div onClick={toggleNav}>
+                <CloseXs />
+              </div>
             )}
           </div>
         </div>

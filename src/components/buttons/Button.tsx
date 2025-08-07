@@ -4,15 +4,18 @@ const Button = ({
   className,
   text,
   icon,
+  left,
 }: {
   className?: string;
   text: string;
   icon?: React.ReactNode;
+  left?: boolean;
 }) => {
   return (
-    <button className={`${className} rounded-lg flex gap-4`}>
+    <button className={`${className} rounded-2xl flex gap-4 justify-center items-center text-sm md:text-md text-nowrap`}>
+      {left && icon && icon}
       {text}
-      {icon && icon}
+      {!left && icon && icon}
     </button>
   );
 };
