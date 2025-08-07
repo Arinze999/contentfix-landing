@@ -14,7 +14,7 @@ const Hero = () => {
             className="absolute inset-0 rounded-full
            bg-[rgba(245,66,215,0.4)]
            filter blur-3xl"
-          ></div> */}
+          ></div>... */}
 
           <div
             className="absolute inset-8 rounded-full
