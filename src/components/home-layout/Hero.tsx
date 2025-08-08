@@ -8,25 +8,42 @@ import HeroIframe from './HeroIframe';
 
 const Hero = () => {
   return (
-    <div className="flex py-[10rem] xl:py-[12rem] gradientBg justify-center items-center">
-      <div className="default-margin flex flex-col justify-center items-center gap-5 relative">
-        {' '}
-        <div className="absolute top-[-5rem] right-0 md:right-[-6rem]">
-          <div className="relative w-40 h-40">
-            {/* <div
-            className="absolute inset-0 rounded-full
-           bg-[rgba(245,66,215,0.4)]
-           filter blur-3xl"
-          ></div>... */}
+    <div className="flex pt-[10rem] xl:pt-[12rem] pb-[5rem] gradientBg justify-center items-center">
+      <div className="default-margin w-full flex flex-col justify-center items-center gap-5 relative">
+        {/* bubbles */}
 
+        <div className="absolute top-[-5rem] right-0">
+          <div className="relative w-40 h-40">
             <div
               className="absolute inset-8 rounded-full
-           bg-[rgba(190,46,147,0.4)] 
-           filter blur-xl"
+           bg-[rgba(190,46,147,0.2)] 
+           filter blur-md"
             ></div>
           </div>
         </div>
-        <p className="border-white/20 border-[1px] rounded-3xl py-2 px-4 flex gap-3 bg-white/10">
+
+        <div className="absolute bottom-[-5rem] right-0">
+          <div className="relative w-40 h-40">
+            <div
+              className="absolute inset-8 rounded-full
+           bg-[rgba(5,109,65,0.2)]
+           filter blur-md"
+            ></div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-[-5rem] left-0">
+          <div className="relative w-40 h-40">
+            <div
+              className="absolute inset-8 rounded-full
+           bg-[rgba(23,7,112,0.2)]
+           filter blur-md"
+            ></div>
+          </div>
+        </div>
+
+        {/*  */}
+        <p className="border-white/20 border-[2px] rounded-3xl py-2 px-4 flex gap-3 bg-white/10">
           <StarsC />
           AI-Powered Text Refinement
           <StarsC />
