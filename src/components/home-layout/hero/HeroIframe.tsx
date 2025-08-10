@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Play } from '../icons/Play';
+import { Play } from '../../icons/Play';
 
 const HeroIframe: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);

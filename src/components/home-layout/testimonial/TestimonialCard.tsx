@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { RoundStarBorder } from '../icons/Star';
+import { RoundStarBorder } from '../../icons/Star';
 
 const TestimonialCard = ({
   src1,

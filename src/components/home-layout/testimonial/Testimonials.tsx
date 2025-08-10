@@ -1,5 +1,5 @@
 import React from 'react';
-import { StarsC } from '../icons/Stars';
+import { StarsC } from '../../icons/Stars';
 import TestimonialCard from './TestimonialCard';
 
 const testimonies = [
@@ -31,7 +31,7 @@ const testimonies = [
 
 const Testimonials = () => {
   return (
-    <div className="flex md:py-[5rem] py-[3rem] gradientBg flex-center relative">
+    <div className="flex md:py-[5rem] pb-[7rem] md:pb-[10rem] py-[3rem] gradientBg flex-center relative">
       {/* bubbles */}
 
       <div className="absolute top-30 left-0">
@@ -44,7 +44,7 @@ const Testimonials = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 right-0">
+      <div className="absolute bottom-20 right-0">
         <div className="relative w-40 h-40">
           <div
             className="absolute inset-8 rounded-full

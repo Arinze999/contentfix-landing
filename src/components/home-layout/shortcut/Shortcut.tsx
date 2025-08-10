@@ -1,6 +1,6 @@
 import React from 'react';
 import ShortcutCard from './ShortcutCard';
-import { StarsC } from '../icons/Stars';
+import { StarsC } from '../../icons/Stars';
 
 const shortcuts = [
   {
@@ -37,9 +37,12 @@ const shortcuts = [
 
 const Shortcut = () => {
   return (
-    <div className="flex md:py-[5rem] py-[3rem] gradientBg2 flex-center">
+    <div className="flex md:py-[5rem] py-[3rem] pb-[7rem] md:pb-[10rem] gradientBg2 flex-center">
       <div className="default-margin w-full col-center relative">
-        <p className="border-white/20 border-[2px] rounded-3xl py-2 px-4 flex gap-3 gradientBg opacity-80">
+        <p
+          className="border-white/20 border-[2px] rounded-3xl py-2 px-4 flex gap-3 bg-gradient-to-r from-[#9333EA]/20 to-[#DB2777]/20
+            [--tw-gradient-from-position:0%] [--tw-gradient-to-position:100%] opacity-80"
+        >
           <StarsC />
           Key Features
         </p>
@@ -57,6 +60,12 @@ const Shortcut = () => {
             <ShortcutCard key={index} {...cut} />
           ))}
         </div>
+        <p
+          className="border-white/20 border-[2px] rounded-3xl py-2 px-4 flex gap-3 bg-gradient-to-r from-[#9333EA]/20 to-[#DB2777]/20
+            [--tw-gradient-from-position:0%] [--tw-gradient-to-position:100%] opacity-80"
+        >
+          Ready to 10x your Post engagement? <StarsC />
+        </p>
       </div>
     </div>
   );

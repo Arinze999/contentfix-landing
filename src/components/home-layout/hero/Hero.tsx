@@ -1,9 +1,9 @@
 import React from 'react';
-import { StarsC } from '../icons/Stars';
-import Button from '../buttons/Button';
-import { Play } from '../icons/Play';
-import { GraphArrowIncrease } from '../icons/GraphArrow';
-import { Thunderbolt } from '../icons/Thunderbolt';
+import { StarsC } from '../../icons/Stars';
+import Button from '../../buttons/Button';
+import { Play } from '../../icons/Play';
+import { GraphArrowIncrease } from '../../icons/GraphArrow';
+import { Thunderbolt } from '../../icons/Thunderbolt';
 import HeroIframe from './HeroIframe';
 
 const Hero = () => {

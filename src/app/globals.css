@@ -60,6 +60,20 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.gradient7 {
+  background: var(--color-gradient7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient8 {
+  background: var(--color-gradient8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .gradientBg {
   background: var(--color-gradientBg);
 }
@@ -78,6 +92,14 @@ body {
 
 .gradientBgBtn {
   background: var(--color-gradientBgBtn);
+}
+
+.gradientBgBtn2 {
+  background: var(--color-gradientBgBtn2);
+}
+
+.gradientBgBtn3 {
+  background: var(--color-gradientBgBtn3);
 }
 
 @theme {
@@ -100,6 +122,7 @@ body {
   --color-gradient5: linear-gradient(to right, #3b82f6 0%, #06b6d4 100%);
   --color-gradient6: linear-gradient(to right, #22c55e 0%, #10b981 100%);
   --color-gradient7: linear-gradient(to right, #f97316 0%, #ef4444 100%);
+  --color-gradient8: linear-gradient(to right, #c084fc 0%, #60a5fa 100%);
   --color-gradientBg: linear-gradient(
     -30deg,
     #0f0f23 0%,
@@ -113,7 +136,7 @@ body {
     #020617 50%,
     #000000 100%
   );
-   --color-gradientBg2-1: linear-gradient(
+  --color-gradientBg2-1: linear-gradient(
     180deg,
     #0f172a 30%,
     #020617 50%,
@@ -126,7 +149,10 @@ body {
     #312e81 100%
   );
   --color-gradientBgBtn: linear-gradient(120deg, #9333ea 0%, #db2777 100%);
+  --color-gradientBgBtn2: linear-gradient(120deg, #3b82f6 0%, #06b6d4 100%);
+  --color-gradientBgBtn3: linear-gradient(120deg, #f97316 0%, #ef4444 100%);
   --color-dark: #000000;
+  --color-lightBlue: #93c5fd;
 }
 
 @layer utilities {
@@ -136,18 +162,17 @@ body {
   .col-center {
     @apply flex flex-col justify-center items-center gap-4;
   }
-    .col-start {
+  .col-start {
     @apply flex flex-col gap-4;
   }
   .general-title {
     @apply md:text-5xl text-2xl font-bold text-center;
   }
 
-    .general-subtitle {
+  .general-subtitle {
     @apply md:text-lg text-center max-w-[850px];
   }
 }
-
 
 @media (min-width: 320px) {
   .default-margin {
