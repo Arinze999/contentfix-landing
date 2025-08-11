@@ -45,11 +45,11 @@ const Hero = () => {
         {/*  */}
         <p className="border-white/20 border-[2px] rounded-3xl py-2 px-4 flex gap-3 bg-white/10">
           <StarsC />
-          AI-Powered Text Refinement
+          AI-Powered Text Enhancer
           <StarsC />
         </p>
         <h1 className="text-[64px] lg:text-[90px] text-center font-inter font-extrabold flex flex-col xl:flex-row justify-center items-center">
-          <span className="gradient1">Polish Text,</span>
+          <span className="gradient1">Enhance Text,</span>
           <span className="gradient1 relative">
             {' '}
             Effortlessly{' '}
@@ -72,7 +72,7 @@ const Hero = () => {
           />
 
           <Button
-            text="Watch Demo"
+            text="Try Quickly"
             className="border-white/20 bg-white/10 border-[2px]  py-3 md:px-6 px-4 shadow-lg"
             icon={<Play />}
             left
@@ -85,11 +85,10 @@ const Hero = () => {
           </li>
           <li className="flex justify-center items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-[#60A5FA]"></span> 100 free
-            credits
           </li>
           <li className="flex justify-center items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-[#C084FC]"></span>Setup in
-            2 minutes
+            no time
           </li>
         </ul>
         <HeroIframe />

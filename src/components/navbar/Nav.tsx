@@ -3,6 +3,7 @@
 import { useEffect, useRef, MouseEvent } from 'react';
 import Link from 'next/link';
 import Button from '../buttons/Button';
+import { QUICK_TRY } from '@/routes/routes';
 
 const Nav = () => {
   const navRef = useRef<HTMLDivElement>(null);
@@ -15,9 +16,9 @@ const Nav = () => {
   // build your items
   const navItems: Array<{ title: string; link: string }> = [
     { title: 'Home', link: '/' },
-    { title: 'Features', link: '/' },
-    { title: 'Testimonials', link: '/' },
-    { title: 'Pricing', link: '/' },
+    { title: 'Quick try', link: `/${QUICK_TRY}` },
+    // { title: 'Testimonials', link: '/' },
+    // { title: 'Pricing', link: '/' },
   ];
 
   useEffect(() => {

@@ -79,9 +79,9 @@ const Pricing = () => {
           Choose the perfect plan for your post content needs. Scale up anytime,
           no hidden fees ever.
         </p>
-        <p className="border-white/20 border-[2px] rounded-xl py-2 px-4 flex flex-col md:flex-row gap-3 bg-white/5 opacity-80">
+        <p className="border-white/20 border-[2px] rounded-xl py-2 px-4 flex flex-col md:flex-row items-center gap-3 bg-white/5 opacity-80">
           <span className="text-lightBlue flex-center gap-3">
-            <InfoAltDuotone /> 1 Credit = 376 Words
+            <InfoAltDuotone /> 100% Free (At The Moment)
           </span>
           for your post for available socials
         </p>

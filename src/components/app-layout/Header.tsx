@@ -27,7 +27,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="bg-dark/90 text-white fixed w-full top-0 z-10 py-2 md:py-0">
+    <header className="bg-dark text-white fixed w-full top-0 z-10 py-2 md:py-0">
       <div className="default-margin md:min-h-[5rem] flex justify-between items-center relative">
         <CompanyLogo
           close={() => {
