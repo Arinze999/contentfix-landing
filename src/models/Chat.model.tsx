@@ -1,21 +1,21 @@
 import * as Yup from 'yup';
 
-const TONE_IDS = [
+export const TONE_IDS = [
   'professional',
   'conversational',
   'playful',
   'persuasive',
   'empathetic',
 ] as const;
-const EMOJI_LEVELS = ['none', 'low', 'moderate'] as const;
+export const EMOJI_LEVELS = ['none', 'low', 'moderate'] as const;
 
 export const PromptSchema = Yup.object({
-  message: Yup.string().trim().required('Message can not be empty'),
+  message: Yup.string().trim().required(),
   tones: Yup.array()
-    .of(Yup.string().oneOf(TONE_IDS as unknown as string[]))
-    .min(1, 'Select at least 1 tone')
-    .max(2, 'Select up to 2 tones')
-    .required('Select up to 2 tones'),
+    .of(Yup.string().oneOf(TONE_IDS as unknown as string[])),
+    // .min(1, 'Select at least 1 tone')
+    // .max(2, 'Select up to 2 tones')
+    // .required('Select up to 2 tones'),
   // platforms: Yup.array()
   //   .of(Yup.string())
   //   .min(1, 'Choose at least one platform'),
@@ -35,7 +35,7 @@ export const PromptInitialValues: PromptDataType = {
   message: '',
   tones: [],
   // platforms: [],
-  linkedin: false,
+  linkedin: true,
   twitter: false,
   threads: false,
   official: false,

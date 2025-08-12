@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useId, useState } from 'react';
+import React, { useId, useRef, useState } from 'react';
 import {
   PromptSchema,
   PromptInitialValues,
@@ -15,13 +15,25 @@ import EmojiLevelField from '../form/EmojiLevelField';
 import ValidatingFormSubmitButton from '../buttons/ValidatingFormSubmitButton';
 import { StarsC } from '../icons/Stars';
 import clsx from 'clsx';
+import { CloseXs } from '../icons/Close';
+import { Options } from '../icons/Options';
+import { useClickOutside } from '@/hooks/useClickOutside';
+import { useSendPromptContext } from '@/context/SendPromptContext';
 
 const QuickTry: React.FC = () => {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const btnRef = useRef<HTMLButtonElement>(null!);
+  const panelRef = useClickOutside<HTMLDivElement, HTMLButtonElement>(
+    () => setOpen(false),
+    open,
+    [btnRef]
+  );
+
+  const { sendPrompt, loading } = useSendPromptContext();
 
   const onSubmit = (values: PromptDataType) => {
-    console.log(values);
+    sendPrompt(values);
   };
 
   return (
@@ -33,13 +45,14 @@ const QuickTry: React.FC = () => {
     >
       {/* Floating panel (collapsible) */}
       <div
+        ref={panelRef}
         id={panelId}
         className={clsx(
           'fixed z-5',
           'left-1/2 -translate-x-1/2 bottom-40',
           '',
           'w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-3xl md:max-w-2xl',
-          'rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl',
+          'rounded-2xl border border-white/15 bg-[#191d2eef] backdrop-blur-xl',
           'shadow-[0_0_3px_rgba(139,92,246,0.25)]',
           'transition-all duration-300 overflow-hidden',
           open
@@ -88,6 +101,7 @@ const QuickTry: React.FC = () => {
           <div className="flex justify-between">
             {/* Floating panel toggle (always visible, above composer) */}
             <button
+              ref={btnRef}
               type="button"
               aria-expanded={open}
               aria-controls={panelId}
@@ -96,8 +110,8 @@ const QuickTry: React.FC = () => {
                 'text-sm',
                 // position: sit above the composer
                 'right-4 md:right-8 bottom-28 md:bottom-32',
-                'h-11 w-11 rounded-full',
-                'bg-white/10 border border-white/20 backdrop-blur-md',
+                'w-25 rounded-full',
+                'bg-white/10 border-2 border-white/20 backdrop-blur-md',
                 'flex items-center justify-center',
                 'hover:bg-white/15 active:scale-[0.98]',
                 'transition'
@@ -116,8 +130,10 @@ const QuickTry: React.FC = () => {
                   d="M3 7h10v2H3V7m8 10H3v-2h8v2m10-6H3v-2h18v2m-6 6h6v-2h-6v2z"
                 />
               </svg> */}
+              {open ? <CloseXs /> : <Options />}{' '}
+              <span className="text-[12px]">options</span>
             </button>
-            <ValidatingFormSubmitButton>
+            <ValidatingFormSubmitButton loading={loading}>
               <span className="hidden md:inline">Enhance</span> <StarsC />
             </ValidatingFormSubmitButton>
           </div>
