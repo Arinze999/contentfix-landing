@@ -9,6 +9,7 @@ interface IValidatingFormSubmitButton {
   children: string | React.ReactNode;
   className?: string;
   alwaysActive?: boolean;
+  disabled?: boolean;
 }
 
 const ValidatingFormSubmitButton: React.FC<IValidatingFormSubmitButton> = ({
@@ -16,6 +17,7 @@ const ValidatingFormSubmitButton: React.FC<IValidatingFormSubmitButton> = ({
   children,
   className = '',
   alwaysActive = false,
+  disabled,
 }) => {
   // grab everything from Formik
   const { dirty, isValid, values, errors } = useFormikContext<any>();
@@ -44,10 +46,10 @@ const ValidatingFormSubmitButton: React.FC<IValidatingFormSubmitButton> = ({
   return (
     <button
       type="submit"
-      disabled={isDisabled}
+      disabled={disabled || isDisabled}
       className={`
         ${baseStyles}
-        ${isDisabled ? disabledStyles : enabledStyles}
+        ${isDisabled || disabled ? disabledStyles : enabledStyles}
         ${className}
       `}
     >

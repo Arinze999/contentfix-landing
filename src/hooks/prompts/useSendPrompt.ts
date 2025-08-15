@@ -31,8 +31,9 @@ export function useSendPrompt() {
     lines.push(
       'You are ContentFix, an AI that rewrites text for selected platforms.',
       'Return only Markdown. For each selected platform, create a concise post.',
-      'Start each section with "### <Platform>". Then put the post on the next line.',
-      'Respect platform norms: LinkedIn (professional), Twitter/X (≤280 chars), Threads (casual), Official (formal memo/email style).'
+      // 'Start each section with "### <Platform>". Then put the post on the next line.',
+      'Follow the Output Rules for section headers and layout.',
+      'Respect platform norms: LinkedIn (professional by default and clearly identify the header for the post and the body as well), Twitter/X (≤280 chars), Threads (casual), Official (formal memo/email style).'
     );
 
     // Message (required by schema)
@@ -71,13 +72,119 @@ export function useSendPrompt() {
       lines.push('', '### Emoji Policy', rule);
     }
 
+    // Input status focus
+    if (v.inputStatus === 'idea') {
+      lines.push(
+        '',
+        '### Task Focus',
+        'Treat the user message as a raw idea. Create original copy for each selected platform.',
+        'Open with a strong hook in the first body line. Add minimal connective context if needed.',
+        'Do not ask questions or output notes—return only the posts.'
+      );
+    } else if (v.inputStatus === 'refinement') {
+      lines.push(
+        '',
+        '### Task Focus',
+        'Treat the user message as an existing draft. Preserve the original meaning, point of view, and any explicit facts, names, and numbers.',
+        'Tighten wording, improve clarity and flow, and align to the selected tones without changing the core message.',
+        'Do not introduce new claims or data. Return only the posts.'
+      );
+    }
+
+    // Length preference (apply ONLY to LinkedIn and Official) with word-count targets
+    if (v.length && (v.linkedin || v.official)) {
+      // per-platform targets
+      const targets: string[] = [];
+      const li: string[] = [];
+      const off: string[] = [];
+
+      // line rules (your existing intent)
+      const lineRule =
+        v.length === 'short'
+          ? 'Keep to ~1–2 lines.'
+          : v.length === 'average'
+          ? 'Keep to ~3–5 lines.'
+          : 'Allow ~6–10 lines.';
+
+      // word-count ranges per platform & length
+      // Tune these if you want more/less verbosity.
+      const ranges: any = {
+        linkedin: {
+          short: '40–70 words',
+          average: '80–120 words',
+          long: '140–200 words',
+        },
+        official: {
+          short: '60–100 words',
+          average: '120–160 words',
+          long: '180–260 words',
+        },
+      } as const;
+
+      if (v.linkedin) {
+        targets.push('LinkedIn');
+        li.push(
+          `- LinkedIn target: ${
+            ranges.linkedin[v.length]
+          } (use full sentences).`
+        );
+      }
+      if (v.official) {
+        targets.push('Official');
+        off.push(
+          `- Official target: ${
+            ranges.official[v.length]
+          } (use full sentences).`
+        );
+      }
+
+      lines.push(
+        '',
+        '### Length Preference',
+        `Apply only to ${targets.join(' and ')} posts: ${lineRule}`,
+        'For these platforms, adhere to the following word-count ranges:',
+        ...(li.length ? li : []),
+        ...(off.length ? off : []),
+        'Ignore any length targets for Twitter/X and Threads.'
+      );
+    }
+
+    if (v.linkedin) {
+      lines.push(
+        '',
+        '### LinkedIn Formatting',
+        'Begin the post with a bold headline line: **Header:** <short headline>.',
+        'Place the headline and the body on two different lines — never on the same line.',
+        v.length === 'long'
+          ? 'Write 10–15 lines for the body, expanding ideas fully and using bold for 2–3 key phrases (e.g., **key point**).'
+          : v.length === 'average'
+          ? 'Write 6–10 lines for the body and bold 2–3 key phrases (e.g., **key point**).'
+          : 'Write 4–5 short lines for the body and bold 2–3 key phrases (e.g., **key point**).',
+        'End with a clear CTA or an end of speech mic drop moment (optional). Keep hashtags ≤ 3 (optional).'
+      );
+    }
+
+    if (v.official) {
+      lines.push(
+        '',
+        '### Official Formatting',
+        'Start with a brief subject-style header line, then body on the next line.',
+        'Use full sentences and clear structure; if length is "long", include a short rationale or bullet list of 2–3 items.'
+      );
+    }
+
     // Output rules
     lines.push(
       '',
       '### Output Rules',
-      '- Start each section with: "### <Platform>".',
+      '- Start each section with exactly: "# LinkedIn" (or "# Twitter/X", "# Threads", "# Official") — plain text, one space after #, no bold.',
+      '- Put one blank line after the heading.',
+      '- After each platform section, output a horizontal rule on its own line as `---`, with a blank line before and after.',
       '- Do not include code fences.',
-      '- Return only the posts in Markdown.'
+      '- Return only the posts in Markdown.',
+      '- If a length preference is provided, apply it only to LinkedIn and Official; ignore for Twitter/X and Threads.',
+      '- For LinkedIn and Official, the specified word-count ranges are hard requirements; do not summarize below the lower bound.',
+      '- If input status is "refinement", preserve facts/names/numbers and avoid new claims; if "idea", you may add light connective context but no fabricated statistics.'
     );
 
     return lines.join('\n');

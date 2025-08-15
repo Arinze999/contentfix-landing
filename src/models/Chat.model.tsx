@@ -9,13 +9,17 @@ export const TONE_IDS = [
 ] as const;
 export const EMOJI_LEVELS = ['none', 'low', 'moderate'] as const;
 
+export const LENGTH_IDS = ['short', 'average', 'long'] as const;
+
+export const INPUT_STATUS_IDS = ['idea', 'refinement'] as const;
+export type InputStatus = (typeof INPUT_STATUS_IDS)[number];
+
 export const PromptSchema = Yup.object({
-  message: Yup.string().trim().required(),
-  tones: Yup.array()
-    .of(Yup.string().oneOf(TONE_IDS as unknown as string[])),
-    // .min(1, 'Select at least 1 tone')
-    // .max(2, 'Select up to 2 tones')
-    // .required('Select up to 2 tones'),
+  message: Yup.string().trim().required(''),
+  tones: Yup.array().of(Yup.string().oneOf(TONE_IDS as unknown as string[])),
+  // .min(1, 'Select at least 1 tone')
+  // .max(2, 'Select up to 2 tones')
+  // .required('Select up to 2 tones'),
   // platforms: Yup.array()
   //   .of(Yup.string())
   //   .min(1, 'Choose at least one platform'),
@@ -26,7 +30,13 @@ export const PromptSchema = Yup.object({
   // personality: Yup.string().trim().optional(),
   emojiLevel: Yup.string()
     .oneOf(EMOJI_LEVELS as unknown as string[])
-    .optional(), // default handled in initial values
+    .optional(),
+  length: Yup.string()
+    .oneOf(LENGTH_IDS as unknown as string[])
+    .optional(),
+  inputStatus: Yup.string()
+    .oneOf(INPUT_STATUS_IDS as unknown as string[])
+    .required(''),
 });
 
 export type PromptDataType = Yup.InferType<typeof PromptSchema>;
@@ -41,4 +51,6 @@ export const PromptInitialValues: PromptDataType = {
   official: false,
   // personality: '',
   emojiLevel: 'none',
+  length: 'average',
+  inputStatus: 'idea',
 };

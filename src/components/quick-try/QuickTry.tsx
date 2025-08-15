@@ -19,6 +19,8 @@ import { CloseXs } from '../icons/Close';
 import { Options } from '../icons/Options';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useSendPromptContext } from '@/context/SendPromptContext';
+import LengthField from '../form/LengthField';
+import { InputStatusSelect } from '../form/InputStatusSelect';
 
 const QuickTry: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -52,7 +54,7 @@ const QuickTry: React.FC = () => {
           'left-1/2 -translate-x-1/2 bottom-40',
           '',
           'w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-3xl md:max-w-2xl',
-          'rounded-2xl border border-white/15 bg-[#191d2eef] backdrop-blur-xl',
+          'rounded-2xl border border-white/15 bg-[#191d2e] backdrop-blur-xl',
           'shadow-[0_0_3px_rgba(139,92,246,0.25)]',
           'transition-all duration-300 overflow-hidden',
           open
@@ -64,7 +66,7 @@ const QuickTry: React.FC = () => {
           {/* Platforms */}
           <div className="mb-4">
             <div className="text-sm font-semibold text-white/80 mb-2">
-              Platforms
+              <InputStatusSelect />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <ToggleButton name="linkedin" label="LinkedIn" />
@@ -78,6 +80,7 @@ const QuickTry: React.FC = () => {
           <div className="">
             <ToneMultiSelectField name="tones" options={TONE_OPTIONS} />
             <EmojiLevelField name="emojiLevel" />
+            <LengthField name="length" />
           </div>
         </div>
       </div>
@@ -90,9 +93,9 @@ const QuickTry: React.FC = () => {
           'w-full max-w-3xl px-3 sm:px-4 pb-3 sm:pb-4'
         )}
       >
-        <div className="rounded-2xl border-2 border-white/15 bg-white/10 backdrop-blur-xl p-3 sm:p-4 shadow-lg">
+        <div className="rounded-2xl border-2 border-white/15 bg-[#191d2e] backdrop-blur-xl p-3 sm:p-4 shadow-lg">
           <TextAreaInputField
-            placeholder="Rough idea here..."
+            placeholder="Post/Rough idea here..."
             label=""
             name="message"
             className="mb-3"
@@ -133,8 +136,13 @@ const QuickTry: React.FC = () => {
               {open ? <CloseXs /> : <Options />}{' '}
               <span className="text-[12px]">options</span>
             </button>
-            <ValidatingFormSubmitButton loading={loading}>
-              <span className="hidden md:inline">Enhance</span> <StarsC />
+            <ValidatingFormSubmitButton
+              disabled={loading}
+              loading={loading}
+              className="md:w-[7.5rem] w-[4rem] h-10"
+            >
+              <span className="hidden md:inline min-w-[16px]">Enhance</span>{' '}
+              {!loading && <StarsC />}
             </ValidatingFormSubmitButton>
           </div>
         </div>
