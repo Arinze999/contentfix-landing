@@ -5,7 +5,7 @@ import { Play } from '../../icons/Play';
 
 const HeroIframe: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const videoUrl = '/video/contentfix-howto.mp4'; // replace
+  const videoUrl = '/video/democcc.mp4'; // replace
 
   return (
     <div
@@ -36,12 +36,23 @@ const HeroIframe: React.FC = () => {
       {isPlaying ? (
         <iframe
           className="w-full h-full"
-          src={`${videoUrl}?autoplay=1`}
           title="Hero Video"
-          frameBorder="0"
           allow="autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+          // No `src` — we embed a mini HTML page that has a muted <video/>
+          srcDoc={`<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      html,body{height:100%;margin:0;background:transparent;}
+      video{width:100%;height:100%;object-fit:cover;display:block}
+    </style>
+  </head>
+  <body>
+    <video src="${videoUrl}" autoplay muted playsinline loop></video>
+  </body>
+</html>`}
+        />
       ) : (
         <div className="w-full h-full flex flex-col gap-4 items-center justify-center">
           <button
