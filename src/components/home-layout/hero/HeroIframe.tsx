@@ -5,7 +5,7 @@ import { Play } from '../../icons/Play';
 
 const HeroIframe: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const videoUrl = 'https://www.youtube.com/embed/AGddeDjad-4'; // replace
+  const videoUrl = '/video/contentfix-howto.mp4'; // replace
 
   return (
     <div

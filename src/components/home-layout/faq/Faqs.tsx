@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Question from './Question';
 import Button from '@/components/buttons/Button';
+import { useRouter } from 'next/navigation';
+import { QUICK_TRY } from '@/routes/routes';
 
 // For use with <FAQ items={questions} />
 export const questions = [
@@ -39,7 +41,9 @@ export const questions = [
 ];
 
 const Faqs = () => {
+  const router = useRouter();
   const [openId, setOpenId] = useState<number | null>(null);
+
   return (
     <div className="flex md:py-[5rem] pb-[7rem] md:pb-[10rem] py-[3rem] gradientBg3 flex-center relative">
       {/* bubbles */}
@@ -106,7 +110,11 @@ const Faqs = () => {
               className="bg-white/10 border-white/50 border-[2px] text-sm py-2 px-4"
             />
             or
-            <Button text="Try it out, quickly" className="text-sm py-2 px-4" />
+            <Button
+              text="Try it out, quickly"
+              className="text-sm py-2 px-4"
+              onClick={() => router.push(`/${QUICK_TRY}`)}
+            />
           </div>
         </div>
       </div>

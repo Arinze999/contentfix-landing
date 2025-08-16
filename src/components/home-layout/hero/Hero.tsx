@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { StarsC } from '../../icons/Stars';
 import Button from '../../buttons/Button';
@@ -5,8 +7,12 @@ import { Play } from '../../icons/Play';
 import { GraphArrowIncrease } from '../../icons/GraphArrow';
 import { Thunderbolt } from '../../icons/Thunderbolt';
 import HeroIframe from './HeroIframe';
+import { QUICK_TRY } from '@/routes/routes';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
+  const router = useRouter();
+
   return (
     <div className="flex pt-[10rem] xl:pt-[12rem] pb-[5rem] gradientBg justify-center items-center">
       <div className="default-margin w-full flex flex-col justify-center items-center gap-5 relative">
@@ -76,6 +82,7 @@ const Hero = () => {
             className="border-white/20 bg-white/10 border-[2px]  py-3 md:px-6 px-4 shadow-lg"
             icon={<Play />}
             left
+            onClick={() => router.push(`/${QUICK_TRY}`)}
           />
         </div>
         <ul className="flex flex-col md:flex-row gap-3 mt-10 text-sm">

@@ -6,17 +6,20 @@ const Button = ({
   icon,
   left,
   disabled,
+  onClick,
 }: {
   className?: string;
   text: string;
   icon?: React.ReactNode;
   left?: boolean;
   disabled?: boolean;
+  onClick?: ()=> void;
 }) => {
   return (
     <button
       className={`${className} cursor-pointer rounded-2xl flex gap-3 justify-center items-center text-sm md:text-md text-nowrap disabled:cursor-help`}
       disabled={disabled}
+      onClick={onClick}
     >
       {left && icon && icon}
       {text}
