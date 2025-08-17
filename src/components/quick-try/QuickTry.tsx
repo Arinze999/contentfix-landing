@@ -50,7 +50,7 @@ const QuickTry: React.FC = () => {
         ref={panelRef}
         id={panelId}
         className={clsx(
-          'fixed z-20',
+          'fixed z-5',
           'left-1/2 -translate-x-1/2 bottom-40',
           '',
           'w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-3xl md:max-w-2xl',
@@ -88,7 +88,7 @@ const QuickTry: React.FC = () => {
       {/* Composer pinned at bottom-center */}
       <div
         className={clsx(
-          'fixed',
+          'fixed z-5',
           'left-1/2 -translate-x-1/2 bottom-0 md:bottom-0',
           'w-full max-w-3xl px-3 sm:px-4 pb-3 sm:pb-4'
         )}
