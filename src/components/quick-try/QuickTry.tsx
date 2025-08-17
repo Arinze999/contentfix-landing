@@ -43,7 +43,7 @@ const QuickTry: React.FC = () => {
       initialValues={PromptInitialValues}
       schema={PromptSchema}
       onSubmit={onSubmit}
-      className="relative z-20"
+      className="relative h-screen z-20"
     >
       {/* Floating panel (collapsible) */}
       <div
