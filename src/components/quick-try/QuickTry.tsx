@@ -50,7 +50,7 @@ const QuickTry: React.FC = () => {
         ref={panelRef}
         id={panelId}
         className={clsx(
-          'fixed z-5',
+          'fixed z-20',
           'left-1/2 -translate-x-1/2 bottom-40',
           '',
           'w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-3xl md:max-w-2xl',
