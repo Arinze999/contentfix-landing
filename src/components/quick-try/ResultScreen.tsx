@@ -148,7 +148,7 @@ const ResultScreen: React.FC = () => {
   }, [hasAnimated, result?.content]);
 
   return (
-    <div className="min-h-[10rem] text-sm rounded-lg md:mt-[7rem] mt-[5rem] flow-root h-auto text-white border relative">
+    <div className="min-h-[10rem] text-sm rounded-lg md:mt-[7rem] mt-[5rem] flow-root h-auto text-white relative">
       {/* Copy button (kept outside the animated containerRef subtree) */}
       {result?.content && !loading && !failed && (
         <div className="fixed top-30 right-5 md:right-30 z-10 -mt-2 mb-2 flex justify-end">

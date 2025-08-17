@@ -43,7 +43,7 @@ const QuickTry: React.FC = () => {
       initialValues={PromptInitialValues}
       schema={PromptSchema}
       onSubmit={onSubmit}
-      className="relative h-screen z-20"
+      className="relative z-20"
     >
       {/* Floating panel (collapsible) */}
       <div
@@ -88,7 +88,7 @@ const QuickTry: React.FC = () => {
       {/* Composer pinned at bottom-center */}
       <div
         className={clsx(
-          'fixed z-5',
+          'fixed',
           'left-1/2 -translate-x-1/2 bottom-0 md:bottom-0',
           'w-full max-w-3xl px-3 sm:px-4 pb-3 sm:pb-4'
         )}
