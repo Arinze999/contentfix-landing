@@ -156,7 +156,7 @@ const ResultScreen: React.FC = () => {
             type="button"
             onClick={handleCopy}
             disabled={!result?.content}
-            className="rounded-md border border-white/20 px-3 hover:text-purple-500 py-1 text-xs md:text-sm shadow-sm hover:bg-white/10 disabled:opacity-50 flex-center gap-3"
+            className="rounded-md border border-white/20 px-3 hover:text-white py-1 text-xs md:text-sm shadow-sm hover:bg-white/10 bg-black disabled:opacity-50 flex-center gap-3"
             title="Copy content"
           >
             <CopyOutline /> {copied ? 'Copied!' : 'Copy'}

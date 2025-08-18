@@ -70,7 +70,7 @@ const ToggleButtonField: React.FC<ToggleButtonFieldProps> = ({
           onClick={toggle}
           onKeyDown={onKeyDown}
           className={clsx(
-            'relative inline-flex items-center w-10 h-6 rounded-full border-2',
+            'relative inline-flex items-center w-8 md:w-10 h-4 md:h-6 rounded-full border-2',
             'transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500/40 disabled:opacity-30',
             loading
               ? 'bg-[#3b82f6]/20 border-[#3b82f6]/20 cursor-not-allowed text-purple-500'
@@ -84,9 +84,9 @@ const ToggleButtonField: React.FC<ToggleButtonFieldProps> = ({
           ) : (
             <span
               className={clsx(
-                'absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow-sm',
+                'absolute md:top-0.5 left-0.5 md:h-4 h-3 w-3 md:w-4 rounded-full bg-white shadow-sm',
                 'transition-transform duration-200 will-change-transform',
-                isOn ? 'translate-x-4' : 'translate-x-0'
+                isOn ? 'md:translate-x-4 translate-x-3' : 'translate-x-0'
               )}
             />
           )}

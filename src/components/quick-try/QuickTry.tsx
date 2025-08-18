@@ -51,7 +51,7 @@ const QuickTry: React.FC = () => {
         id={panelId}
         className={clsx(
           'fixed z-5',
-          'left-1/2 -translate-x-1/2 bottom-40',
+          'left-1/2 -translate-x-1/2 bottom-30 md:bottom-40',
           '',
           'w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-3xl md:max-w-2xl',
           'rounded-2xl border border-white/15 bg-[#191d2e] backdrop-blur-xl',
