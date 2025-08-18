@@ -9,6 +9,8 @@ const page = () => {
       <div className="flex gradientBg2 text-white flex-center relative">
         <div className="default-margin w-full min-h-screen col-start relative overflow-auto overflow-x-hidden mb-100 md:mb-100 no-scrollbar">
           <ResultScreen />
+        </div>
+        <div>
           <QuickTry />
         </div>
       </div>
