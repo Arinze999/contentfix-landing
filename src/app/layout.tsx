@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     'ContentFix',
   ],
   metadataBase: new URL('https://contentfix-landing.vercel.app/'),
+
   openGraph: {
     title: 'ContentFix – Instant Content Transformation',
     description:
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     siteName: 'ContentFix',
     images: [
       {
-        url: 'https://contentfix-landing.vercel.app/og-image.png',
+        url: 'https://t4.ftcdn.net/jpg/05/34/12/71/360_F_534127141_WLe9sk0MTVS5PxsB3yROZ3lItE4evzr7.jpg',
         width: 1200,
         height: 630,
         alt: 'ContentFix – Paste & Generate Demo',
@@ -46,13 +47,14 @@ export const metadata: Metadata = {
     ],
     type: 'website',
   },
+
   twitter: {
     card: 'summary_large_image',
     title: 'ContentFix – Paste Your Content & Generate Instantly',
     description:
       'No more writer’s block. Paste your text in ContentFix and choose your format—tweets, LinkedIn posts, newsletters, and more.',
-    images: ['https://contentfix-landing.vercel.app/twitter-card.png'],
-    creator: '@your_twitter_handle', // replace with your handle
+    images: ['https://t4.ftcdn.net/jpg/05/34/12/71/360_F_534127141_WLe9sk0MTVS5PxsB3yROZ3lItE4evzr7.jpg'],
+    creator: '@arinze', 
   },
 };
 
@@ -64,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${inter.variable} antialiased`}>
-        <Header/>
+        <Header />
         {children}
         <Footer />
       </body>
