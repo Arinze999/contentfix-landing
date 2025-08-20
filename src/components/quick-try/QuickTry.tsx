@@ -70,7 +70,7 @@ const QuickTry: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <ToggleButton name="linkedin" label="LinkedIn" />
-              <ToggleButton name="twitter" label="Twitter" disabled />
+              <ToggleButton name="twitter" label="Twitter" />
               <ToggleButton name="threads" label="Threads" />
               <ToggleButton name="official" label="Official" />
             </div>
