@@ -3,6 +3,8 @@ import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
 import Footer from '@/components/app-layout/Footer';
 import Header from '@/components/app-layout/Header';
+import { SettingsProvider } from '@/context/SettingsContext';
+import AuthBootstrapper from '@/components/AuthBootstrapper';
 
 const poppins = Poppins({
   weight: ['400'],
@@ -53,8 +55,10 @@ export const metadata: Metadata = {
     title: 'ContentFix – Paste Your Content & Generate Instantly',
     description:
       'No more writer’s block. Paste your text in ContentFix and choose your format—tweets, LinkedIn posts, newsletters, and more.',
-    images: ['https://t4.ftcdn.net/jpg/05/34/12/71/360_F_534127141_WLe9sk0MTVS5PxsB3yROZ3lItE4evzr7.jpg'],
-    creator: '@arinze', 
+    images: [
+      'https://t4.ftcdn.net/jpg/05/34/12/71/360_F_534127141_WLe9sk0MTVS5PxsB3yROZ3lItE4evzr7.jpg',
+    ],
+    creator: '@arinze',
   },
 };
 
@@ -66,9 +70,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${inter.variable} antialiased`}>
-        <Header />
-        {children}
-        <Footer />
+        <SettingsProvider>
+          <AuthBootstrapper />
+          <Header />
+          {children}
+          <Footer />
+        </SettingsProvider>
       </body>
     </html>
   );

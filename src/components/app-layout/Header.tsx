@@ -10,11 +10,14 @@ import MobileNav from '@/components/navbar/MobileNav';
 import CompanyLogo from '@/components/CompanyLogo';
 import { MenuSquare } from '../icons/MenuSpuare';
 import { CloseXs } from '../icons/Close';
+import { useSettings } from '@/context/SettingsContext';
 
 const Header = () => {
   const [navOpen, setNavOpen] = useState(false);
 
   const toggleNav = () => setNavOpen((prev) => !prev);
+
+  const { user } = useSettings();
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,6 +57,7 @@ const Header = () => {
             setNavOpen(false);
           }}
         />
+        {user && <p>{user.email}</p>}
       </div>
     </header>
   );
